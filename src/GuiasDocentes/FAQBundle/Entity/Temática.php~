@@ -1,0 +1,64 @@
+<?php
+
+namespace GuiasDocentes\FAQBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Temática
+ *
+ * @ORM\Table(name="Temática", indexes={@ORM\Index(name="fk_Temática_Personal1_idx", columns={"Personal_Email"})})
+ * @ORM\Entity
+ */
+class Temática
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Enunciado", type="string", length=45, nullable=true)
+     */
+    private $enunciado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Tematica", type="string", length=45, nullable=true)
+     */
+    private $tematica;
+
+    /**
+     * @var \Personal
+     *
+     * @ORM\ManyToOne(targetEntity="Personal")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Personal_Email", referencedColumnName="Email")
+     * })
+     */
+    private $personalEmail;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="GrupoSoporte", mappedBy="temática")
+     */
+    private $grupoSoporte;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->grupoSoporte = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}
+

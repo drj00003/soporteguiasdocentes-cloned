@@ -1,0 +1,81 @@
+<?php
+
+namespace GuiasDocentes\FAQBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * GrupoSoporte
+ *
+ * @ORM\Table(name="Grupo_Soporte", indexes={@ORM\Index(name="fk_Grupo_Soporte_Administrador1_idx", columns={"Administrador_ID"})})
+ * @ORM\Entity
+ */
+class GrupoSoporte
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Nombre", type="string", length=20, nullable=true)
+     */
+    private $nombre;
+
+    /**
+     * @var \Administrador
+     *
+     * @ORM\ManyToOne(targetEntity="Administrador")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Administrador_ID", referencedColumnName="ID")
+     * })
+     */
+    private $administrador;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Perfil", inversedBy="grupoSoporte")
+     * @ORM\JoinTable(name="grupo_soporte_has_perfil",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="Grupo_Soporte_ID", referencedColumnName="ID")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="Perfil_Nombre", referencedColumnName="Nombre")
+     *   }
+     * )
+     */
+    private $perfilNombre;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Temática", inversedBy="grupoSoporte")
+     * @ORM\JoinTable(name="grupo_soporte_has_temática",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="Grupo_Soporte_ID", referencedColumnName="ID")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="Temática_ID", referencedColumnName="ID")
+     *   }
+     * )
+     */
+    private $temática;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->perfilNombre = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->temática = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}
+

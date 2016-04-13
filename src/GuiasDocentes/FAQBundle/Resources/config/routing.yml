@@ -1,0 +1,7 @@
+guias_docentes_faq_homepage:
+    path:     /
+    defaults: { _controller: GuiasDocentesFAQBundle:FAQManager:index }
+    
+guias_docentes_faq_group:
+    path:     /gfaq
+    defaults: { _controller: GuiasDocentesFAQBundle:FAQManager:group }

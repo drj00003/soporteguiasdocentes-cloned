@@ -1,0 +1,30 @@
+Consultante:
+    type: entity
+    table: Consultante
+    id:
+        email:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            id: true
+            column: Email
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+            column: Nombre
+        apellidos:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: Apellidos
+    lifecycleCallbacks: {  }

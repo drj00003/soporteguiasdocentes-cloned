@@ -1,0 +1,4 @@
+services:
+#    guias_docentes_faq.example:
+#        class: GuiasDocentes\FAQBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

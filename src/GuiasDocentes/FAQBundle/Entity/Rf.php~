@@ -1,0 +1,50 @@
+<?php
+
+namespace GuiasDocentes\FAQBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Rf
+ *
+ * @ORM\Table(name="RF", indexes={@ORM\Index(name="fk_RF_Personal1_idx", columns={"Personal_Email"})})
+ * @ORM\Entity
+ */
+class Rf
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Texto", type="text", length=65535, nullable=false)
+     */
+    private $texto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Keywords", type="string", length=25, nullable=true)
+     */
+    private $keywords;
+
+    /**
+     * @var \Personal
+     *
+     * @ORM\ManyToOne(targetEntity="Personal")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Personal_Email", referencedColumnName="Email")
+     * })
+     */
+    private $personalEmail;
+
+
+}
+

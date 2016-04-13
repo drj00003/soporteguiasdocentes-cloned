@@ -1,0 +1,45 @@
+Consulta:
+    type: entity
+    table: Consulta
+    indexes:
+        fk_Consulta_Hilo1_idx:
+            columns:
+                - Hilo_ID
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: ID
+            generator:
+                strategy: IDENTITY
+    fields:
+        texto:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: Texto
+        visto:
+            type: boolean
+            nullable: true
+            column: Visto
+        fecha:
+            type: datetime
+            nullable: true
+            column: Fecha
+    manyToOne:
+        hilo:
+            targetEntity: Hilo
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Hilo_ID:
+                    referencedColumnName: ID
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

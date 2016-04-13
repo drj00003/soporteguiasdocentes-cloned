@@ -1,0 +1,37 @@
+Personal:
+    type: entity
+    table: Personal
+    id:
+        email:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            id: true
+            column: Email
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+            column: Nombre
+        apellidos:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: Apellidos
+        departamento:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+            column: Departamento
+    lifecycleCallbacks: {  }

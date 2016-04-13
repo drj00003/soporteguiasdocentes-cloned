@@ -1,0 +1,43 @@
+<?php
+
+namespace GuiasDocentes\FAQBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Grupo
+ *
+ * @ORM\Table(name="Grupo", indexes={@ORM\Index(name="fk_Grupo_Perfil1_idx", columns={"Perfil_Nombre"})})
+ * @ORM\Entity
+ */
+class Grupo
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Nombre", type="text", length=65535, nullable=true)
+     */
+    private $nombre;
+
+    /**
+     * @var \Perfil
+     *
+     * @ORM\ManyToOne(targetEntity="Perfil")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Perfil_Nombre", referencedColumnName="Nombre")
+     * })
+     */
+    private $perfilNombre;
+
+
+}
+

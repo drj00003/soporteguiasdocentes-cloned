@@ -1,0 +1,37 @@
+Grupo:
+    type: entity
+    table: Grupo
+    indexes:
+        fk_Grupo_Perfil1_idx:
+            columns:
+                - Perfil_Nombre
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: ID
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: Nombre
+    manyToOne:
+        perfilNombre:
+            targetEntity: Perfil
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Perfil_Nombre:
+                    referencedColumnName: Nombre
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,56 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheets %}
+        <!-- theme app main.css (this import of all custom css, you can use requirejs for optimizeCss or grunt to optimize them all) -->
+        <link href=" {{ asset('Resources/FAQ/css/ujaen.min.css') }}" rel="stylesheet" />
+{% endblock %}
+{% block body %}
+    <div id="wrapper">
+        <a href="#content" class="skip" title="Ir al principio del contenido de esta página.">Saltar al contenido principal</a>
+        {% block header %}
+            <div id="header" class="clear-block">
+              <ul class="langNav">
+                <li id="spanish">Espa&ntilde;ol</li>
+              </ul>
+              <h1>
+                <a href="/" title="Inicio" rel="http://www10.ujaen.es">
+                    <span>Inicio</span>
+                </a>
+              </h1>
+              <div class="barraNavegacion">
+                  <a href="/"><img src="{{ asset('Resources/FAQ/img/pageHome.png') }}"  /></a>
+              </div>
+              <div id="navbar">
+                  <div id="navbar-inner"> 
+            
+                      <div id="search-box" role="search">
+                        <form action="http://busqueda.ujaen.es/search" accept-charset="UTF-8" method="get" id="search-theme-form">
+                        </form>
+                       </div>
+                  </div>
+              </div>  
+            </div>
+        {% endblock %}
+    {% block breadcrumb %}
+        <div id="main">
+      		<div id="main-inner" class="clear-block">
+        		<div class="breadcrumb">Inicio >></div>
+            </div>
+       </div>
+    {% endblock %}
+    {% block content %}
+    {% endblock %}
+    </div>
+    <div>
+        {% block footer %}
+          <div id="footer">
+          	<div id="footer-inner">
+            	<div id="footer-message"> Universidad de Ja&eacute;n </div>
+            </div>
+          </div>
+        {% endblock %}
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

@@ -1,0 +1,40 @@
+<?php
+
+namespace GuiasDocentes\FAQBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Consultante
+ *
+ * @ORM\Table(name="Consultante")
+ * @ORM\Entity
+ */
+class Consultante
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Email", type="string", length=50, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Nombre", type="string", length=30, nullable=true)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Apellidos", type="string", length=50, nullable=true)
+     */
+    private $apellidos;
+
+
+}
+

@@ -1,0 +1,41 @@
+{% extends 'FAQ/base-faq.html.twig' %}
+{% block title %}APLICACIÓN DE GUÍAS DOCENTES UJA - Dudas e Incidencias{% endblock %}
+{% block content %}
+      <div id="content" role="main">
+        <div id="content-header" >
+			<h2 class="title" title="Aplicación de guías docentes UJA">APLICACIÓN DE GUÍAS DOCENTES UJA - Dudas e Incidencias</h2>
+        </div>
+
+        <div id="manuales">
+          <h3>Manuales</h3>
+          <hr size="2" color="#049fe1" width="90%" />
+			<div id="listas">
+            <ul>
+            	<li type="animation:alternate"><a href="{{ asset('Resources/doc/guias/GuiaHerramientaGuiasDocentes - Profesor.pdf') }}" target="_blank">Para profesores responsables de asignatura </a></li>
+                <li type="animation:alternate"><a href="{{ asset('Resources/doc/guias/Guia Herramienta Guias Docentes - Dir Departamento.pdf') }} target="_blank">Para directores de departamento</a> </li>
+                <li style="animation:alternate"><a href="{{ asset('Resources/doc/guias/Guia Herramienta Guias Docentes - Direccion Centro.pdf') }}" target="_blank">Para decanos/directores de Facultades/Escuelas</a></li>
+            </ul>
+           	</div>
+		</div>
+	<div id="faqs">
+      <h3>Preguntas Frecuentes (FAQ)</h3>
+      <hr size="2" color="#049fe1" width="90%" />
+            <p style="font-size:12px;margin-left:90px" align="justify">Elija su perfil:</p>
+            <form style="margin:4px 4px 0px 88px"  method="POST" action="gfaq.php">
+
+                <select name="perfil" class="down">
+
+                    <option value="Profesor" selected="selected">Profesor</option>
+                    <option value="Profesor Responsable">Profesor Responsable</option>
+                    <option value="Director Departamento">Director Departamento</option>
+                    <option value="Decano/Director Centro">Decano/Director Centro</option>
+                </select>
+                 <input type="submit" value="Enviar" >
+      </form>
+        </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent () }}
+    {#Custom index.js#}
+    <script src=" {{ asset('Resources/FAQ/js/index.js') }}"></script>
+{% endblock %}

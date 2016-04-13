@@ -1,0 +1,9 @@
+guias_docentes_admin_panel:
+    resource:   "@GuiasDocentesAdminPanelBundle/Resources/config/routing.yml"
+    prefix:     /admin
+
+
+guias_docentes_faq:
+    resource:   "@GuiasDocentesFAQBundle/Resources/config/routing.yml"
+    prefix:     /
+

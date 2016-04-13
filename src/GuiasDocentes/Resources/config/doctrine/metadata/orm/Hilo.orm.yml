@@ -1,0 +1,42 @@
+Hilo:
+    type: entity
+    table: Hilo
+    indexes:
+        fk_Hilo_Personal1_idx:
+            columns:
+                - Personal_Email
+        fk_Hilo_Consultante1_idx:
+            columns:
+                - Consultante_Email
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: ID
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        personalEmail:
+            targetEntity: Personal
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Personal_Email:
+                    referencedColumnName: Email
+            orphanRemoval: false
+        consultanteEmail:
+            targetEntity: Consultante
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Consultante_Email:
+                    referencedColumnName: Email
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,7 @@
+guias_docentes_admin_panel_homepage:
+    path:       /
+    defaults:   { _controller: GuiasDocentesAdminPanelBundle:AdminPanel:index }
+    
+guias_docentes_admin_panel_login:
+    path:       /login
+    defaults:   { _controller: GuiasDocentesAdminPanelBundle:AdminPanel:login }

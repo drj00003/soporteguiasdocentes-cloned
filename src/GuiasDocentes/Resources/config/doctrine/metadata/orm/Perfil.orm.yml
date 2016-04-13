@@ -1,0 +1,24 @@
+Perfil:
+    type: entity
+    table: Perfil
+    id:
+        nombre:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            id: true
+            column: Nombre
+            generator:
+                strategy: IDENTITY
+    manyToMany:
+        grupoSoporte:
+            targetEntity: GrupoSoporte
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: perfilNombre
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

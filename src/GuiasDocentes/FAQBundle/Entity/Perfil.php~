@@ -1,0 +1,40 @@
+<?php
+
+namespace GuiasDocentes\FAQBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Perfil
+ *
+ * @ORM\Table(name="Perfil")
+ * @ORM\Entity
+ */
+class Perfil
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Nombre", type="string", length=100, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $nombre;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="GrupoSoporte", mappedBy="perfilNombre")
+     */
+    private $grupoSoporte;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->grupoSoporte = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}
+
